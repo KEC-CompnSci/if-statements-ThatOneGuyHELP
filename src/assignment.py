@@ -9,16 +9,19 @@ all_assignments_completed = True
 # TASK 1: Calculate the final score as the average of test_score and exam_score
 # ===== YOUR CODE HERE =====
 
-final_score = None  # Replace None with the calculation
+
+final_score = (test_score + exam_score) / 2  # Replace None with the calculation
 
 # ===== END YOUR CODE =====
 
 # TASK 2: Determine if the student passed
 # A student passes if their final_score is 60 or higher
 # ===== YOUR CODE HERE =====
-
 passed = None  # Set to True or False using an if statement
-
+if final_score >59:
+    passed = True
+else:
+    passed = False
 # ===== END YOUR CODE =====
 
 # TASK 3: Assign a letter grade based on the final_score
@@ -29,8 +32,16 @@ passed = None  # Set to True or False using an if statement
 # Score below 60: "F"
 # ===== YOUR CODE HERE =====
 
-letter_grade = ""  # Set the letter grade using if-elif-else
-
+if final_score > 89:
+    letter_grade = "A" 
+elif final_score < 90 and final_score > 79:
+    letter_grade = "B"
+elif final_score < 80 and final_score > 69:
+    letter_grade = "C"
+elif final_score < 70 and final_score > 59:
+    letter_grade = "D"
+else:
+    letter_grade = "F"
 # ===== END YOUR CODE =====
 
 # TASK 4: Determine honor roll status
@@ -38,8 +49,10 @@ letter_grade = ""  # Set the letter grade using if-elif-else
 # - A final_score of 90 or higher
 # - All assignments completed
 # ===== YOUR CODE HERE =====
-
-honor_roll = None  # Set to True or False using an if statement
+if final_score >= 90 and all_assignments_completed == True:
+    honor_roll = True
+else:  
+    honor_roll = False # Set to True or False using an if statement
 
 # ===== END YOUR CODE =====
 
@@ -50,9 +63,11 @@ honor_roll = None  # Set to True or False using an if statement
 #   - Have a letter grade of "A" OR
 #   - Have a letter grade of "B" AND have completed all assignments
 # ===== YOUR CODE HERE =====
-
-can_take_advanced = None  # Set to True or False using if statements with AND/OR
-
+if final_score >= 60:
+    if letter_grade == "A" or letter_grade == "B" and all_assignments_completed == True:
+        can_take_advanced = True  # Set to True or False using if statements with AND/OR
+    else: can_take_advanced = False
+else: can_take_advanced = False
 # ===== END YOUR CODE =====
 
 # This prints the results (do not modify)
